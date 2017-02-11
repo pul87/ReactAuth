@@ -12,10 +12,12 @@ class SignIn extends Component {
     if(this.props.errorMessage) {
       return (
         <div className="alert alert-danger">
+          <strong>Oops!</strong> {this.props.errorMessage}
         </div>
       );
     }
   }
+  
   render() {
     const { handleSubmit, fields: { email, password } } = this.props;
     return (
@@ -26,7 +28,7 @@ class SignIn extends Component {
         </fieldset>
         <fieldset className="form-group">
           <label>Password:</label>
-          <input { ...password } className="form-control" />
+          <input type="password" { ...password } className="form-control" />
         </fieldset>
         {this.renderAlert()}
         <button action="submit" className="btn btn-primary">Sign In</button>
